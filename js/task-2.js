@@ -26,14 +26,4 @@ const images = [
 ];
 
 const addImageGallery = document.querySelector(".gallery");
-const fragment = document.createDocumentFragment();
-  
-  images.forEach((image) => {
-  const li = document.createElement('li');
-  const img = document.createElement('img');
-  img.setAttribute('src', image.url);
-  img.setAttribute('alt', image.alt);
-  li.appendChild(img);
-  fragment.appendChild(li);
-  });
-addImageGallery.appendChild(fragment);
+  images.map((image) => {addImageGallery.insertAdjacentHTML("beforeend", `<li><img src="${image.url}" alt="${image.alt}"/></li>`)})
