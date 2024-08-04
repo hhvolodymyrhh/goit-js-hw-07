@@ -78,7 +78,7 @@ button{
   gap: 48px 24px;
 }
 
-.list-item-image {
+.gallery li{
   display: flex;
   flex-wrap: wrap;
   width: calc((100% - 24px *2) / 3);

@@ -26,15 +26,14 @@ const images = [
 ];
 
 const addImageGallery = document.querySelector(".gallery");
-
-  const srcForHtml = [];
-  const altForHtml = [];
+const fragment = document.createDocumentFragment();
+  
   images.forEach((image) => {
-  srcForHtml.push(image.url);
-  altForHtml.push(image.alt);
+  const li = document.createElement('li');
+  const img = document.createElement('img');
+  img.setAttribute('src', image.url);
+  img.setAttribute('alt', image.alt);
+  li.appendChild(img);
+  fragment.appendChild(li);
   });
-
-for (let i = 0; i <= images.length; i += 1){
-  let addImage =`<li class="list-item-image"><img src="${srcForHtml.slice(i, i + 1)}" alt="${altForHtml.slice(i, i + 1)}"/> </li>`
-  addImageGallery.insertAdjacentHTML("beforeend", addImage)
-  }
+addImageGallery.appendChild(fragment);
