@@ -26,4 +26,6 @@ const images = [
 ];
 
 const addImageGallery = document.querySelector(".gallery");
-  images.map((image) => {addImageGallery.insertAdjacentHTML("beforeend", `<li><img src="${image.url}" alt="${image.alt}"/></li>`)})
+let allFragments = ``;
+images.map((image) => allFragments = allFragments + `<li><img src="${image.url}" alt="${image.alt}"/></li>`);
+addImageGallery.innerHTML = allFragments;
