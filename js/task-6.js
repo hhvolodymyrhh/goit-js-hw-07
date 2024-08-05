@@ -11,22 +11,28 @@ const selectButtonCreate = document.querySelector("button[data-create]");
 const selectButtonDestroy = document.querySelector("button[data-destroy]");
 
 selectButtonCreate.addEventListener("click", createBoxes);
-function createBoxes(amount) {
+function createBoxes() {
   destroyBoxes();
-    amount = parseFloat(selectInputNum.value);
-   if (amount >= 0 && amount <= 100) {
-      let numGrow = 10;
-        for (let i = 0; i < amount; i++) {
+    const amount = parseFloat(selectInputNum.value);
+  if (amount >= 0 && amount <= 100) {
+    let numGrow = 0;
+    let stringAll = "";
+     for (let i = 0; i < amount; i++) {
           const newDiv = document.createElement("div");
-          numGrow += 10;
-            newDiv.style.width = 20 + numGrow + "px";
-            newDiv.style.height = 20 + numGrow + "px";
-          newDiv.style.backgroundColor = getRandomHexColor();
-          
-            selectDiv.appendChild(newDiv);
+          newDiv.style.width = 30  + "px";
+            newDiv.style.height = 30  + "px";
+          if (i > 0) {
+            numGrow += 10;
+            newDiv.style.width = 30 + numGrow + "px";
+            newDiv.style.height = 30 + numGrow + "px";
+          }
+            newDiv.style.backgroundColor = getRandomHexColor();
+            
+           stringAll += newDiv.outerHTML;
         }
-      selectInputNum.value = "";
-    }
+         selectDiv.innerHTML = stringAll;
+    selectInputNum.value = "";
+   }
 }
 
 selectButtonDestroy.addEventListener("click", destroyBoxes);

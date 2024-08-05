@@ -79,8 +79,6 @@ button{
 }
 
 .gallery li{
-  display: flex;
-  flex-wrap: wrap;
   width: calc((100% - 24px *2) / 3);
   object-fit: cover;
 }
