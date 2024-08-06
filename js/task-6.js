@@ -16,7 +16,7 @@ function createBoxes() {
     const amount = parseFloat(selectInputNum.value);
   if (amount >= 0 && amount <= 100) {
     let numGrow = 0;
-    let stringAll = "";
+    let stringAll = document.createDocumentFragment();
      for (let i = 0; i < amount; i++) {
           const newDiv = document.createElement("div");
           newDiv.style.width = 30  + "px";
@@ -27,10 +27,9 @@ function createBoxes() {
             newDiv.style.height = 30 + numGrow + "px";
           }
             newDiv.style.backgroundColor = getRandomHexColor();
-            
-           stringAll += newDiv.outerHTML;
+       stringAll.appendChild(newDiv);    
         }
-         selectDiv.innerHTML = stringAll;
+    selectDiv.appendChild(stringAll);
     selectInputNum.value = "";
    }
 }
